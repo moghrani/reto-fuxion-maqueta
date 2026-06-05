@@ -1,12 +1,13 @@
 <!DOCTYPE html><html lang="es"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reto Fuxion 2026 — Portal (Maqueta estilizada)</title>
+<title>Reto Fuxion 2026 — Portal (Maqueta · fotografía)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#2155a3;--dark:#15315e;--ink:#1d2c44;--orange:#f5821f;--orange2:#e0700f;
  --green:#2E9E4F;--red:#e1543b;--bg:#eef4fb;--muted:#6f819b;--line:#e2eaf4;
  --shadow:0 10px 30px rgba(20,49,94,.12);--shadow2:0 18px 50px rgba(20,49,94,.22);
+ --img-beach:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
  }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
@@ -28,6 +29,8 @@ label{font-size:13px;font-weight:600;color:#42526e}
 .palm{position:absolute;bottom:34%;left:-10px;width:230px;opacity:.95}
 @media(max-width:700px){.palm{width:150px}.sun{width:64px;height:64px}}
 
+.photobg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat}
+.ov{position:absolute;inset:0}
 /* ---- LOGIN ---- */
 #login{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:flex-end;padding:0 7vw}
 .glass{background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.6);border-radius:22px;box-shadow:var(--shadow2)}
@@ -148,9 +151,7 @@ table.t td{padding:11px;border-bottom:1px solid var(--line)}
 
 <!-- LOGIN -->
 <section id="login">
- <div class="beach"><div class="sun"></div><div class="sea-shine"></div>
-  <svg class="palm"><use href="#palmsym"/></svg>
-  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><use href="#wavesym"/></svg></div>
+ <div class="photobg" style="background-image:var(--img-beach)"></div><div class="ov" style="background:linear-gradient(90deg,rgba(15,33,62,.60),rgba(15,33,62,.18))"></div>
  <div class="login-card glass">
   <div class="logo">FU<b>X</b>ION</div>
   <div style="margin:12px 0"><span class="stamp">RETO<small>FUXION 2026-1</small></span></div>
@@ -181,9 +182,7 @@ table.t td{padding:11px;border-bottom:1px solid var(--line)}
 
   <div id="s-home" class="screen">
    <div class="hero">
-    <div class="beach"><div class="sun"></div><div class="sea-shine"></div>
-     <svg class="palm"><use href="#palmsym"/></svg>
-     <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><use href="#wavesym"/></svg></div>
+    <div class="photobg" style="background-image:var(--img-beach)"></div><div class="ov" style="background:linear-gradient(90deg,rgba(15,33,62,.60),rgba(15,33,62,.18))"></div>
     <div class="ribbon"><span class="stamp">RETO<small>FUXION 2026-1</small></span></div>
     <div class="content">
      <h1>TU MEJOR VERSIÓN TE LLEVARÁ A LUGARES INCREÍBLES</h1>
@@ -283,13 +282,14 @@ function go(s,el){['home','registro','avance','compras','plan','mentor'].forEach
  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.dataset.s===s));
  if(s==='registro')renderStep();window.scrollTo({top:0,behavior:'smooth'});}
 function tryLocked(s){if(registered)go(s);else{alert('Esta sección se desbloquea al completar tu registro.');go('registro');}}
-function renderPlan(){const items=[['Planes de alimentación','Tu plan personalizado','Según tu objetivo y calorías.','#2155a3,#1C7293'],
- ['Recetas con productos','Recetario Fuxion','Batidos, snacks y comidas.','#f5821f,#fb9d3e'],
- ['Rutinas de ejercicio','Full body · Fuerza · Cardio','Guiadas por nivel, con videos.','#2E9E4F,#4bb377'],
- ['Videos de baile','Muévete y quema','Sesiones de baile y fortalecimiento.','#7a4fd0,#9b6fe0'],
- ['Uso de productos','¿Cómo y cuándo tomarlos?','Guía de consumo.','#1C7293,#28a3b8'],
- ['Tips semanales','Hábitos saludables','Contenido actualizable.','#e1543b,#f0795f']];
- document.getElementById('planCards').innerHTML=items.map(i=>`<div class="ccard"><div class="top" style="background:linear-gradient(135deg,${i[3]})">${i[0]}</div><div class="bd"><b class="f" style="color:var(--dark)">${i[1]}</b><p>${i[2]}</p></div></div>`).join('');}
+function renderPlan(){const FOOD='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',FIT='https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80',BEACHP='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80';
+ const items=[['Planes de alimentación','Tu plan personalizado','Según tu objetivo y calorías.',FOOD],
+ ['Recetas con productos','Recetario Fuxion','Batidos, snacks y comidas.',FOOD],
+ ['Rutinas de ejercicio','Full body · Fuerza · Cardio','Guiadas por nivel, con videos.',FIT],
+ ['Videos de baile','Muévete y quema','Sesiones de baile y fortalecimiento.',FIT],
+ ['Uso de productos','¿Cómo y cuándo tomarlos?','Guía de consumo.',BEACHP],
+ ['Tips semanales','Hábitos saludables','Contenido actualizable.',BEACHP]];
+ document.getElementById('planCards').innerHTML=items.map(i=>`<div class="ccard"><div class="top" style="background:linear-gradient(rgba(15,33,62,.30),rgba(15,33,62,.58)),url('${i[3]}') center/cover">${i[0]}</div><div class="bd"><b class="f" style="color:var(--dark)">${i[1]}</b><p>${i[2]}</p></div></div>`).join('');}
 
 const SIL='<svg class="silhouette" viewBox="0 0 120 200"><g fill="#9fb3cc"><circle cx="60" cy="26" r="18"/><path d="M60 46c-20 0-32 12-34 34-2 16 0 36 4 52h8l4-44 2 60h12l2-60 4 44h8c4-16 6-36 4-52-2-22-14-34-34-34z"/><path d="M30 84l-12 40 7 3 13-38zM90 84l12 40-7 3-13-38z"/></g></svg>';
 const STEPS=[{t:"1. Mis datos",h:dataStep},{t:"2. Tus medidas",h:medStep},{t:"3. Diagnóstico",h:diagStep},{t:"4. Tu objetivo",h:objStep},{t:"5. Resumen",h:resStep},{t:"6. Mentor",h:mentStep},{t:"7. Términos",h:tycStep},{t:"8. Compra",h:buyStep},{t:"9. Fotos y video",h:photoStep},{t:"10. Fecha de inicio",h:dateStep}];
