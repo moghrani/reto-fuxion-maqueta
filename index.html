@@ -182,7 +182,7 @@ table.t td{padding:11px;border-bottom:1px solid var(--line)}
 
   <div id="s-home" class="screen">
    <div class="hero">
-    <div class="photobg" style="background-image:var(--img-beach)"></div><div class="ov" style="background:linear-gradient(90deg,rgba(15,33,62,.60),rgba(15,33,62,.18))"></div>
+    <div class=\"photobg\" style=\"background-image:url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80')\"></div><div class="ov" style="background:linear-gradient(90deg,rgba(15,33,62,.60),rgba(15,33,62,.18))"></div>
     <div class="ribbon"><span class="stamp">RETO<small>FUXION 2026-1</small></span></div>
     <div class="content">
      <h1>TU MEJOR VERSIÓN TE LLEVARÁ A LUGARES INCREÍBLES</h1>
@@ -269,7 +269,7 @@ table.t td{padding:11px;border-bottom:1px solid var(--line)}
     <button class="btn btn-orange" style="margin-top:14px">Exportar a Excel</button></div>
   </div>
 
-  <div class="disc">Maqueta de propuesta — Reto Fuxion 2026 · Área de Innovación y Tecnología · FuXion Biotech. Ambiente recreado con CSS/SVG (sustituible por fotografía de marca). Datos de ejemplo.</div>
+  <div class="disc">Maqueta de propuesta — Reto Fuxion 2026 · Área de Innovación y Tecnología · FuXion Biotech. Fotografía de referencia (Unsplash), sustituible por imágenes oficiales de la campaña. Datos de ejemplo.</div>
  </div>
 </div>
 
@@ -282,13 +282,12 @@ function go(s,el){['home','registro','avance','compras','plan','mentor'].forEach
  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.dataset.s===s));
  if(s==='registro')renderStep();window.scrollTo({top:0,behavior:'smooth'});}
 function tryLocked(s){if(registered)go(s);else{alert('Esta sección se desbloquea al completar tu registro.');go('registro');}}
-function renderPlan(){const FOOD='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',FIT='https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80',BEACHP='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80';
- const items=[['Planes de alimentación','Tu plan personalizado','Según tu objetivo y calorías.',FOOD],
- ['Recetas con productos','Recetario Fuxion','Batidos, snacks y comidas.',FOOD],
- ['Rutinas de ejercicio','Full body · Fuerza · Cardio','Guiadas por nivel, con videos.',FIT],
- ['Videos de baile','Muévete y quema','Sesiones de baile y fortalecimiento.',FIT],
- ['Uso de productos','¿Cómo y cuándo tomarlos?','Guía de consumo.',BEACHP],
- ['Tips semanales','Hábitos saludables','Contenido actualizable.',BEACHP]];
+function renderPlan(){const items=[['Planes de alimentación','Tu plan personalizado','Según tu objetivo y calorías.','https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80'],
+ ['Recetas con productos','Recetario Fuxion','Batidos, snacks y comidas.','https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=800&q=80'],
+ ['Rutinas de ejercicio','Full body · Fuerza · Cardio','Guiadas por nivel, con videos.','https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80'],
+ ['Videos de baile','Muévete y quema','Sesiones de baile y fortalecimiento.','https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80'],
+ ['Uso de productos','¿Cómo y cuándo tomarlos?','Guía de consumo.','https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'],
+ ['Tips semanales','Hábitos saludables','Contenido actualizable.','https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80']];
  document.getElementById('planCards').innerHTML=items.map(i=>`<div class="ccard"><div class="top" style="background:linear-gradient(rgba(15,33,62,.30),rgba(15,33,62,.58)),url('${i[3]}') center/cover">${i[0]}</div><div class="bd"><b class="f" style="color:var(--dark)">${i[1]}</b><p>${i[2]}</p></div></div>`).join('');}
 
 const SIL='<svg class="silhouette" viewBox="0 0 120 200"><g fill="#9fb3cc"><circle cx="60" cy="26" r="18"/><path d="M60 46c-20 0-32 12-34 34-2 16 0 36 4 52h8l4-44 2 60h12l2-60 4 44h8c4-16 6-36 4-52-2-22-14-34-34-34z"/><path d="M30 84l-12 40 7 3 13-38zM90 84l12 40-7 3-13-38z"/></g></svg>';
